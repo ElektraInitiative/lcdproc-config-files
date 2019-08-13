@@ -1,0 +1,5 @@
+conflict only in comments
+
+should be possible to merge without any user input
+
+/etc/lightdm/lightdm-gtk-greeter.conf
