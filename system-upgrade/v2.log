@@ -1,0 +1,166 @@
+Configuration file '/etc/logrotate.d/dpkg'
+ ==> Modified (by you or by a script) since installation.
+ ==> Package distributor has shipped an updated version.
+   What would you like to do about it ?  Your options are:
+    Y or I  : install the package maintainer's version
+    N or O  : keep your currently-installed version
+      D     : show the differences between the versions
+      Z     : start a shell to examine the situation
+ The default action is to keep your current version.
+*** dpkg (Y/I/N/O/D/Z) [default=N] ? D
+--- /etc/logrotate.d/dpkg       2018-01-04 14:34:12.301063460 +0100
++++ /etc/logrotate.d/dpkg.dpkg-new      2019-04-19 04:14:13.000000000 +0200
+@@ -1,15 +1,6 @@
+ /var/log/dpkg.log {
+        monthly
+-       rotate 999
+-       compress
+-       delaycompress
+-       missingok
+-       notifempty
+-       create 644 root root
+-}
+-/var/log/alternatives.log {
+-       monthly
+-       rotate 999
++       rotate 12
+        compress
+        delaycompress
+        missingok
+
+Configuration file '/etc/logrotate.d/dpkg'
+
+
+--------------------------------------
+
+
+
+
+
+Configuration file '/etc/logrotate.d/rsyslog'
+ ==> Modified (by you or by a script) since installation.
+ ==> Package distributor has shipped an updated version.
+   What would you like to do about it ?  Your options are:
+    Y or I  : install the package maintainer's version
+    N or O  : keep your currently-installed version
+      D     : show the differences between the versions
+      Z     : start a shell to examine the situation
+ The default action is to keep your current version.
+*** rsyslog (Y/I/N/O/D/Z) [default=N] ? D
+--- /etc/logrotate.d/rsyslog    2018-01-04 14:35:52.533591935 +0100
++++ /etc/logrotate.d/rsyslog.dpkg-new   2019-02-26 18:43:39.000000000 +0100
+@@ -1,13 +1,13 @@
+ /var/log/syslog
+ {
+-       rotate 999
+-       monthly
++       rotate 7
++       daily
+        missingok
+        notifempty
+        delaycompress
+        compress
+        postrotate
+-               invoke-rc.d rsyslog rotate > /dev/null
++               /usr/lib/rsyslog/rsyslog-rotate
+        endscript
+ }
+ 
+@@ -24,14 +24,14 @@
+ /var/log/debug
+ /var/log/messages
+ {
+-       rotate 999
+-       monthly
++       rotate 4
++       weekly
+        missingok
+        notifempty
+        compress
+        delaycompress
+        sharedscripts
+        postrotate
+-               invoke-rc.d rsyslog rotate > /dev/null
++               /usr/lib/rsyslog/rsyslog-rotate
+        endscript
+ }
+
+Configuration file '/etc/logrotate.d/rsyslog'
+ ==> Modified (by you or by a script) since installation.
+ ==> Package distributor has shipped an updated version.
+   What would you like to do about it ?  Your options are:
+    Y or I  : install the package maintainer's version
+    N or O  : keep your currently-installed version
+      D     : show the differences between the versions
+      Z     : start a shell to examine the situation
+ The default action is to keep your current version.
+*** rsyslog (Y/I/N/O/D/Z) [default=N] ? 
+
+
+--------------------------------------
+
+
+Installing new version of config file /etc/cron.daily/logrotate ...
+
+Configuration file '/etc/logrotate.conf'
+ ==> Modified (by you or by a script) since installation.
+ ==> Package distributor has shipped an updated version.
+   What would you like to do about it ?  Your options are:
+    Y or I  : install the package maintainer's version
+    N or O  : keep your currently-installed version
+      D     : show the differences between the versions
+      Z     : start a shell to examine the situation
+ The default action is to keep your current version.
+*** logrotate.conf (Y/I/N/O/D/Z) [default=N] ? D
+--- /etc/logrotate.conf 2018-01-04 14:33:36.524874830 +0100
++++ /etc/logrotate.conf.dpkg-new        2018-08-22 09:05:31.000000000 +0200
+@@ -3,30 +3,18 @@
+ weekly
+ 
+ # keep 4 weeks worth of backlogs
+-rotate 999
++rotate 4
+ 
+ # create new (empty) log files after rotating old ones
+ create
+ 
++# use date as a suffix of the rotated file
++#dateext
++
+ # uncomment this if you want your log files compressed
+ #compress
+ 
+ # packages drop log rotation information into this directory
+ include /etc/logrotate.d
+ 
+-# no packages own wtmp, or btmp -- we'll rotate them here
+-/var/log/wtmp {
+-    missingok
+-    monthly
+-    create 0664 root utmp
+-    rotate 999
+-}
+-
+-/var/log/btmp {
+-    missingok
+-    monthly
+-    create 0660 root utmp
+-    rotate 999
+-}
+-
+-# system-specific logs may be configured here
++# system-specific logs may be also be configured here.
+
+Configuration file '/etc/logrotate.conf'
+ ==> Modified (by you or by a script) since installation.
+ ==> Package distributor has shipped an updated version.
+   What would you like to do about it ?  Your options are:
+    Y or I  : install the package maintainer's version
+    N or O  : keep your currently-installed version
+      D     : show the differences between the versions
+      Z     : start a shell to examine the situation
+ The default action is to keep your current version.
+*** logrotate.conf (Y/I/N/O/D/Z) [default=N] ? 
+
+
+----------------------------------
