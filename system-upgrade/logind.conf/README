@@ -1,3 +1,13 @@
 file: /etc/systemd/logind.conf
 
 removal of one config: so it reverts back to default
+
+This was, at it later turned out, a misconfiguration.
+
+The option HandleLidSwitch=ignore was essential, because
+otherwise the computer goes to sleep after reboot
+(it is a laptop, always closed, used as server).
+
+Merging should actually automatically come up with the
+correct result. It would have avoid the misconfiguration
+because of my wrong manual merging.
