@@ -13,4 +13,6 @@ Apart from many synthetic tests we use real-world data for our tests.
 Real-world data helps us identifying which features are important and that those important parts work properly.
 We are looking especially at /etc. Thus, contributing is as easy as archiving this folder and uploading it.
 
-Please add configuration files from Debian 9 (Stretch) into the `debian-stretch` directory and configuration files from other sources into the `other` directory. You will have to do a pull request.
+Please add configuration files from Debian 9 (Stretch) into the `debian-stretch` directory and configuration files from other sources into the `other` directory.
+Please add meta information such as your operating system as well, especially when contributing into `other`. 
+You will have to do a pull request.
